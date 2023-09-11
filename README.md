@@ -27,9 +27,38 @@ A fully automated hospital appointment scheduling web-app build using MERN and p
 ## 🚀 Features
 - Login/Signup User Account
 - Login using Email/Username
-- Book an Appointment
+- Hospitals may register doctors
+- Patients may book an appointment
 - Patients notified about their apointment's status
-- Hospitals may register Doctors
+- Schedule Appointments with the least waiting time
+- Slots are booked based on doctors presence in the hospital
+
+
+## Run Locally
+
+Clone the project
+
+```bash
+ git clone https://github.com/dynamicHarsh/bookMySlot.git
+```
+
+Go to the project directory
+
+```bash
+  cd bookMySlot
+```
+
+Install dependencies
+
+```bash
+  npm install
+```
+
+Start the server
+
+```bash
+  npm run dev
+```
 
 
 
