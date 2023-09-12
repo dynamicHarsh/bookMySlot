@@ -24,7 +24,7 @@ A fully automated hospital appointment scheduling web-app build using MERN and p
 
 
 ## 🚀 Features
-- Login/Signup User Account
+- Secure Login for Doctors and patients with role based access control. 
 - Hospitals may register doctors
 - Patients may book an appointment
 - Patients notified about their apointment's status through SMS
@@ -32,9 +32,8 @@ A fully automated hospital appointment scheduling web-app build using MERN and p
 - Slots are booked based on doctors presence in the hospital
 - Patients may upload their prescription, and medical history while booking appointment
 - Doctor may view his scheduled appointments
-
-
-## Run Locally
+- Patient Feedback to improve services and patient satisfaction.
+- Emergency feature 
 
 Clone the project
 
