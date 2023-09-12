@@ -9,7 +9,7 @@
 
 
 .sidebar{
-    min-height: 100%;
+    height: 95vh;
     width: 300px;
     border-radius: 5px;
     background-color: rebeccapurple;
@@ -39,7 +39,7 @@
 }
 
 .body{
-    height: 85vh;
+    min-height: 85vh;
     margin-bottom: 20px;
     box-shadow: 0 0 2px grey;
     background-color: skyblue;
@@ -88,4 +88,8 @@
     color: blue;
     margin: 0 10px;
     text-transform: uppercase;
+}
+
+.doctorsRegForm{
+    padding: 20px;
 }

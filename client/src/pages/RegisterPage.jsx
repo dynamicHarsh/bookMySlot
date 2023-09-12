@@ -34,8 +34,8 @@ const RegisterPage = () => {
     <div className='form-container'>
     <Form layout='vertical' onFinish={onFinishHandler} className='register-form'>
     <h1 className='text-center'>Register</h1>
-    <Form.Item label='Name' name='name'>
-        <Input type='text' required/>
+    <Form.Item label='Name' name='name' >
+        <Input type='text' required />
     </Form.Item>
     <Form.Item label='Email' name='email'>
         <Input type='email' required/>

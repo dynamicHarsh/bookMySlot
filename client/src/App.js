@@ -7,6 +7,7 @@ import Spinner from './components/Spinner';
 
 import HomePage from './pages/HomePage';
 import LoginPage from './pages/LoginPage';
+import RegisterDoctor from './pages/RegisterDoctor';
 import RegisterPage from './pages/RegisterPage';
 
 
@@ -22,6 +23,13 @@ function App() {
           element={
           <ProtectedRoute>
             <HomePage/>
+          </ProtectedRoute>
+          
+          }/>
+          <Route path='/addDoctor' 
+          element={
+          <ProtectedRoute>
+            <RegisterDoctor/>
           </ProtectedRoute>
           
           }/>

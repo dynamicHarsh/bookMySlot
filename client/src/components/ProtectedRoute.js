@@ -33,9 +33,9 @@ export default function ProtectedRoute({children}){
   };
 
   useEffect(()=>{
-    console.log('checking useEffect')
+    
     if(user==null){
-      console.log('inside useEffect')
+      
       getUser()
     }
   },[user,getUser]);
