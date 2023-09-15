@@ -1,4 +1,4 @@
-import React,{useEffect} from 'react'
+import React,{useEffect,useRef} from 'react'
 import axios from 'axios';
 import Layout from '../components/Layout';
 
@@ -13,9 +13,14 @@ const HomePage = () => {
     }
   }
 
+  const initialized=useRef(false);
 
   useEffect(()=>{
-    getUserData();
+    if(!initialized.current){
+      initialized.current=true;
+      getUserData();
+    }
+    
   },[]);
   return (
     <Layout>

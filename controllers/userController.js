@@ -55,7 +55,7 @@ try{
         return res.status(200).send({message: "User Not Found",success: false});
     }
     else{
-        res.status(200).send({success: true,data: {name: user.name,email: user.email,isAdmin: user.isAdmin}});
+        res.status(200).send({success: true,data: {name: user.name,email: user.email,isAdmin: user.isAdmin,id: user._id}});
     }
 }
 catch(err){

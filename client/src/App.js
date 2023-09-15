@@ -4,6 +4,8 @@ import {BrowserRouter,Routes,Route} from 'react-router-dom';
 import ProtectedRoute from './components/ProtectedRoute';
 import PublicRoute from './components/PublicRoute';
 import Spinner from './components/Spinner';
+import AppointmentPage from './pages/AppointmentPage';
+import Booking from './pages/Booking';
 
 import HomePage from './pages/HomePage';
 import LoginPage from './pages/LoginPage';
@@ -26,6 +28,28 @@ function App() {
           </ProtectedRoute>
           
           }/>
+           <Route path='/booking' 
+          element={
+          <ProtectedRoute>
+            <Booking/>
+          </ProtectedRoute>
+          
+          }/>
+
+          <Route path='/myAppointment' 
+          element={
+          <ProtectedRoute>
+            <AppointmentPage/>
+          </ProtectedRoute>
+          
+          }/>
+          <Route path='/appointments' 
+          element={
+          <ProtectedRoute>
+            <AppointmentPage/>
+          </ProtectedRoute>
+          
+          }/>
           <Route path='/addDoctor' 
           element={
           <ProtectedRoute>
@@ -40,6 +64,7 @@ function App() {
           </PublicRoute>
           
           }/>
+
           <Route path='/register' 
           element={
           <PublicRoute>

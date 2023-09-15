@@ -5,8 +5,13 @@ export const userMenu=[
         icon: 'fa-solid fa-house'
     },
     {
+        name: 'Booking',
+        path: '/booking',
+        icon: 'fa-solid fa-calendar-check'
+    },
+    {
         name: 'Appointments',
-        path: '/appointments',
+        path: '/myAppointment',
         icon: 'fa-solid fa-list'
     },
     // {
@@ -38,6 +43,11 @@ export const adminMenu=[
     {
         name: 'Users',
         path: '/getUserData',
+        icon: 'fa-solid fa-user'
+    },
+    {
+        name: 'Appointments',
+        path: '/appointments',
         icon: 'fa-solid fa-user'
     },
 

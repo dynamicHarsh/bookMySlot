@@ -53,7 +53,7 @@ const Layout = ({children}) => {
                 <div className="content">
                     <div className="header">
                     <div className="header-content">
-                    <i class="fa-solid fa-bell"></i>
+                    <i className="fa-solid fa-bell"></i>
                     <Link to='/profile'>{user?.name}</Link>
                     </div>
                     

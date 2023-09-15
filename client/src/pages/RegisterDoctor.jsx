@@ -1,18 +1,21 @@
 import React,{useState} from 'react'
 import Layout from '../components/Layout';
-import {Col, Form,Input,Row, TimePicker,message } from 'antd';
+import {Col, Form,Input,Row, TimePicker,message,Select } from 'antd';
 import { storage } from '../firebase';
 import {ref, uploadBytes} from 'firebase/storage'
 import axios from 'axios';
 import {Link,useNavigate} from 'react-router-dom'
 import {useDispatch} from 'react-redux'
 import { showLoading,hideLoading } from '../redux/features/alertSlice';
+import { speciality } from '../Data/speciality'
 
 
 const RegisterDoctor = () => {
     const [selectedImage, setSelectedImage] = useState(null);
     const navigate=useNavigate();
     const dispatch=useDispatch();
+    const filterOption = (input, option) =>
+  (option?.label ?? '').toLowerCase().includes(input.toLowerCase());
     const handleFinish=async (values)=>{
         try{
             dispatch(showLoading());
@@ -74,7 +77,13 @@ const RegisterDoctor = () => {
     <Row gutter='25' justify='center' align='center'>
     <Col xs={24} md={24} lg={8}>
         <Form.Item label="Specialization" name="speciality" required rules={[{required: true}]}>
-            <Input type='text' placeholder='Doctors Speciality'/>
+        <Select
+    showSearch
+    placeholder="Select Specialization"
+    optionFilterProp="children"
+    filterOption={filterOption} 
+    options={speciality}
+  />
             </Form.Item>
         </Col>
         <Col xs={24} md={24} lg={8}>
@@ -84,7 +93,7 @@ const RegisterDoctor = () => {
         </Col>
     <Col xs={24} md={24} lg={8}>
         <Form.Item label="Timings" name="timing" required rules={[{required: true}]}>
-            <TimePicker.RangePicker/>
+            <TimePicker.RangePicker format='HH:mm'/>
             </Form.Item>
         </Col>
         
