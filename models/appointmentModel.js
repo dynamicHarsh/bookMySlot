@@ -26,7 +26,7 @@ const appointmentSchema=new mongoose.Schema({
         required: [true,'concern is required']
     },
     slot:{
-        type: Date,
+        type: String,
         default: null
     },
     phone:{

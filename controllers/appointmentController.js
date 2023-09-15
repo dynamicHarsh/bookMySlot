@@ -4,7 +4,7 @@ const doctorModel=require('../models/doctorModel');
 const addAppointment=async (req,res)=>{
     try{
         let data=req.body;
-        console.log(data);
+        // console.log(data);
         //Appointment Scheduling algorithm
         let availableDoctor=await doctorModel.findOne({present: true,speciality: data.speciality}).sort({inLine: 1});
         if(availableDoctor){
@@ -21,10 +21,10 @@ const addAppointment=async (req,res)=>{
         let hINCR=Math.floor(slotMM/60);
         slotMM=slotMM%60;
         let slotHH=HH+hINCR;
-        console.log('HH:',slotHH,' MM:',slotMM);
+        // console.log('HH:',slotHH,' MM:',slotMM);
         time.setHours(slotHH),time.setMinutes(slotMM),time.setSeconds(0);
         await doctorModel.findOneAndUpdate({_id: availableDoctor._id},availableDoctor);
-        const newAppointment=new appointmentModel({...data,doctorId: availableDoctor._id,doctorName: availableDoctor.firstname+" "+availableDoctor.lastname,slot: time,phone: availableDoctor.phone});
+        const newAppointment=new appointmentModel({...data,doctorId: availableDoctor._id,doctorName: availableDoctor.firstname+" "+availableDoctor.lastname,slot: time.toLocaleTimeString(),phone: availableDoctor.phone});
         
         let resp=await newAppointment.save();
         res.status(201).send({message: 'Appointment Booked Successfully',success: true});
@@ -49,7 +49,6 @@ const getAppointments=async(req,res)=>{
         if(user.isAdmin){
 
             const app=await appointmentModel.find();
-
             res.status(200).send({success: true,message: `Apppointment Fetched Successfully`,app});
         }
         else{
