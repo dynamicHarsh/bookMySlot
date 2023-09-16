@@ -6,11 +6,13 @@ import PublicRoute from './components/PublicRoute';
 import Spinner from './components/Spinner';
 import AppointmentPage from './pages/AppointmentPage';
 import Booking from './pages/Booking';
+import DoctorPage from './pages/DoctorPage';
 
 import HomePage from './pages/HomePage';
 import LoginPage from './pages/LoginPage';
 import RegisterDoctor from './pages/RegisterDoctor';
 import RegisterPage from './pages/RegisterPage';
+import UserPage from './pages/UserPage';
 
 
 function App() {
@@ -47,6 +49,20 @@ function App() {
           element={
           <ProtectedRoute>
             <AppointmentPage/>
+          </ProtectedRoute>
+          
+          }/>
+          <Route path='/getDoctors' 
+          element={
+          <ProtectedRoute>
+            <DoctorPage/>
+          </ProtectedRoute>
+          
+          }/>
+          <Route path='/getUsers' 
+          element={
+          <ProtectedRoute>
+            <UserPage/>
           </ProtectedRoute>
           
           }/>

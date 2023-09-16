@@ -36,19 +36,26 @@ export const adminMenu=[
         icon: 'fa-solid fa-house'
     },
     {
-        name: 'Doctor',
-        path: '/addDoctor',
-        icon: 'fa-solid fa-user-doctor'
-    },
-    {
-        name: 'Users',
-        path: '/getUserData',
-        icon: 'fa-solid fa-user'
-    },
-    {
         name: 'Appointments',
         path: '/appointments',
         icon: 'fa-solid fa-user'
+    },
+    {
+        name: 'Doctors',
+        path: '/getDoctors',
+        icon: 'fa-solid fa-user-doctor'
+    },
+    
+    {
+        name: 'Users',
+        path: '/getUsers',
+        icon: 'fa-solid fa-user'
+    },
+    
+    {
+        name: 'Add Doctor',
+        path: '/addDoctor',
+        icon: 'fa-solid fa-user-doctor'
     },
 
 ]

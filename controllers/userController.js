@@ -63,4 +63,18 @@ catch(err){
     res.status(500).send({message: `authController ${err.message}`,success: false,})
 }
 }
-module.exports={ loginController, registerController,authController};
+
+const getUsers=async (req,res)=>{
+    try{
+        
+        const users=await userModel.find({isAdmin: false});
+        res.status(201).send({message: 'Doctor Fetched Successfully', success: true,users});
+    }
+    catch(error){
+        console.log(error);
+        res.status(500).send({success: false,message: `addDoctor ${error.message}`});
+    }
+}
+
+
+module.exports={ loginController, registerController,authController,getUsers};
