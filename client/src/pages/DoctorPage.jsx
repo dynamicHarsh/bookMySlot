@@ -1,10 +1,19 @@
 import React, { useState, useEffect, useRef } from 'react'
 import Layout from '../components/Layout'
 import axios from 'axios';
-import {Table} from 'antd';
+import {Table,Pagination} from 'antd';
 const DoctorPage = () => {
   const [doctors,setDoctors]=useState([]);
-  
+  const [currentPage, setCurrentPage] = useState(1);
+    const pageSize = 6; 
+  const handleChangePage = (page) => {
+    setCurrentPage(page);
+  };
+
+  const slicedData = doctors.slice(
+    (currentPage - 1) * pageSize,
+    currentPage * pageSize
+  );
 
   const getDoctors=async ()=>{
     try{
@@ -87,7 +96,14 @@ const DoctorPage = () => {
   return (
     <Layout>
     <div style={{padding: 20}}>
-    <Table dataSource={doctors} columns={columns}/>
+    <Table dataSource={slicedData} columns={columns} pagination={false}/>
+    <Pagination
+        current={currentPage}
+        total={doctors.length}
+        pageSize={pageSize}
+        onChange={handleChangePage}
+        showSizeChanger={false} // Hide page size changer
+      />
     </div>
     </Layout>
     

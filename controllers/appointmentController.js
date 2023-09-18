@@ -24,13 +24,13 @@ const addAppointment=async (req,res)=>{
         // console.log('HH:',slotHH,' MM:',slotMM);
         time.setHours(slotHH),time.setMinutes(slotMM),time.setSeconds(0);
         await doctorModel.findOneAndUpdate({_id: availableDoctor._id},availableDoctor);
-        const newAppointment=new appointmentModel({...data,doctorId: availableDoctor._id,doctorName: availableDoctor.firstname+" "+availableDoctor.lastname,slot: time.toLocaleTimeString(),phone: availableDoctor.phone});
+        const newAppointment=new appointmentModel({...data,doctorId: availableDoctor._id,doctorName: availableDoctor.firstname+" "+availableDoctor.lastname,slot: time.toLocaleString(),phone: availableDoctor.phone});
         
         let resp=await newAppointment.save();
         res.status(201).send({message: 'Appointment Booked Successfully',success: true});
         }
         else{
-            const newAppointment=new appointmentModel(data);
+            const newAppointment=new appointmentModel([...data,{status: 'waiting'}]);
             let resp=await newAppointment.save();
         res.status(201).send({message: 'Appointment Waitlisted',success: true});
         }
@@ -54,7 +54,6 @@ const getAppointments=async(req,res)=>{
         else{
            
             const app=await appointmentModel.find({patientId: user.id});
-            
             res.status(200).send({success: true,message: `Apppointment Fetched Successfully`,app});
         }
     }

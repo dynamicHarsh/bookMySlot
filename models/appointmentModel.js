@@ -32,6 +32,10 @@ const appointmentSchema=new mongoose.Schema({
     phone:{
         type: String,
         default: null
+    },
+    status:{
+        type: String,
+        default: "pending"
     }
     ,
     createdAt: {
