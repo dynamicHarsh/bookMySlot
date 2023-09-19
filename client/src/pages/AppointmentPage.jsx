@@ -72,12 +72,19 @@ const AppointmentPage = () => {
             width: '10rem'
           },
           {
-            title: 'Slot',
+            title: 'Status',
+            dataIndex: 'status',
+            key: 'status',
+            render: (text)=>(text==="waiting")?<span className='bg-warning text-dark'>Waiting</span>:((text==="seen")?<span className='bg-primary text-white'>Seen</span>:<span className='bg-success text-white'>Alloted</span>)
+          },
+          {
+            title: 'Estimated Slot',
             dataIndex: 'slot',
             key: 'slot',
             width: '10rem',
-            render: (text)=> text?String(text).substring(0,25):"Waiting"
+            render: (text)=> text?String(text).substring(0,25):"---"
           },
+          
           {
             title: 'Doctors Name',
             dataIndex: 'doctorName',
@@ -111,13 +118,18 @@ const AppointmentPage = () => {
             width: '10rem',
             render: (text)=> "XXX"+String(text).substring(14)
         },
-        
+        {
+          title: 'Status',
+          dataIndex: 'status',
+          key: 'status',
+          render: (text)=>(text==="waiting")?<span className='bg-warning text-dark'>Waiting</span>:((text==="seen")?<span className='bg-primary text-white'>Seen</span>:<span className='bg-success text-white'>Alloted</span>)
+        },
         {
           title: 'Slot',
             dataIndex: 'slot',
             key: 'slot',
             width: '10rem',
-            render: (text)=> text?String(text).substring(0,25):"Waiting"
+            render: (text)=> text?String(text).substring(0,25):"---"
         },
         {
           title: 'Doctors Name',
