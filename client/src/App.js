@@ -7,12 +7,13 @@ import Spinner from './components/Spinner';
 import AppointmentPage from './pages/AppointmentPage';
 import Booking from './pages/Booking';
 import DoctorPage from './pages/DoctorPage';
-
+import Home from './pages/Home';
 import HomePage from './pages/HomePage';
 import LoginPage from './pages/LoginPage';
 import RegisterDoctor from './pages/RegisterDoctor';
 import RegisterPage from './pages/RegisterPage';
 import UserPage from './pages/UserPage';
+import ProfilePage from './pages/ProfilePage';
 
 
 function App() {
@@ -23,10 +24,10 @@ function App() {
       {loading? (<Spinner/>):
       (
         <Routes>
-          <Route path='/' 
+          <Route path='/home' 
           element={
           <ProtectedRoute>
-            <HomePage/>
+            <Home/>
           </ProtectedRoute>
           
           }/>
@@ -37,7 +38,9 @@ function App() {
           </ProtectedRoute>
           
           }/>
-
+          <Route path='/' element={
+            <HomePage/>
+          }/>
           <Route path='/myAppointment' 
           element={
           <ProtectedRoute>
@@ -70,6 +73,13 @@ function App() {
           element={
           <ProtectedRoute>
             <RegisterDoctor/>
+          </ProtectedRoute>
+          
+          }/>
+          <Route path='/profile' 
+          element={
+          <ProtectedRoute>
+            <ProfilePage/>
           </ProtectedRoute>
           
           }/>

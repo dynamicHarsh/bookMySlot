@@ -1,5 +1,5 @@
 const express=require('express');
-const { loginController, registerController,authController , getUsers} = require('../controllers/userController');
+const { loginController, registerController,authController ,profileController, getUsers} = require('../controllers/userController');
 const authMiddleware = require('../middlewares/authMiddleware');
 const {addDoctor,getDoctors}= require('../controllers/doctorController');
 const {addAppointment,getAppointments}= require('../controllers/appointmentController');
@@ -23,3 +23,4 @@ module.exports=userRouter;
 
 
 userRouter.post('/appointments',getAppointments);
+userRouter.post('/profile',profileController);
