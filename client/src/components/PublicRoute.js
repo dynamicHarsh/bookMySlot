@@ -3,7 +3,7 @@ import { Navigate } from 'react-router-dom'
 
 export default function PublicRoute({children}) {
   if(sessionStorage.getItem('token')){
-    return <Navigate to='/'/>
+    return <Navigate to='/home'/>
   }
   else{
     return children;

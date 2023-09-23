@@ -18,7 +18,8 @@ const LoginPage = () => {
         if(res.data.success){
             sessionStorage.setItem('token',res.data.token);
             message.success('Logged In Successfully');
-            navigate('/');
+            navigate('/home');
+            
         }
         else{
             message.error(res.data.message);

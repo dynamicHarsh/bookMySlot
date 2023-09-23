@@ -2,6 +2,7 @@ const userModel=require('../models/userModel');
 const bcrypt=require('bcryptjs');
 const jwt=require('jsonwebtoken');
 const dotenv=require('dotenv');
+const { findById } = require('../models/userModel');
 dotenv.config();
 const twilio=require('twilio')(process.env.Twilio_SID,process.env.Twilio_AUTH);
 
@@ -69,7 +70,7 @@ try{
         return res.status(200).send({message: "User Not Found",success: false});
     }
     else{
-        res.status(200).send({success: true,data: {name: user.name,email: user.email,isAdmin: user.isAdmin,id: user._id}});
+        res.status(200).send({success: true,data: {name: user.name,email: user.email,isAdmin: user.isAdmin,id: user._id,phone: user.phone}});
     }
 }
 catch(err){
@@ -89,6 +90,22 @@ const getUsers=async (req,res)=>{
         res.status(500).send({success: false,message: `addDoctor ${error.message}`});
     }
 }
+const profileController = async (req, res) => {
+    try {
+      const data=req.body.values;
+      console.log(data);
+      
+      await userModel.findOneAndUpdate({_id: req.body._id},data);
+      
+      res.status(200).send({message: 'Profile Updated Successfully', success: true});
+    } catch (error) {
+      res.status(404).json({
+        message: `profileController ${error.message}`,
+        success: false,
+      });
+    }
+  };
+ 
+  
 
-
-module.exports={ loginController, registerController,authController,getUsers};
+module.exports={ loginController, registerController,authController,getUsers,profileController};

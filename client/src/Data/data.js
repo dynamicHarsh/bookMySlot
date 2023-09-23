@@ -1,7 +1,7 @@
 export const userMenu=[
     {
         name: 'Home',
-        path: '/',
+        path: '/home',
         icon: 'fa-solid fa-house'
     },
     {
@@ -32,7 +32,7 @@ export const userMenu=[
 export const adminMenu=[
     {
         name: 'Home',
-        path: '/',
+        path: '/home',
         icon: 'fa-solid fa-house'
     },
     {

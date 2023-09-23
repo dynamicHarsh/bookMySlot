@@ -29,6 +29,8 @@
 .content{
     width: 100%;
     height: 100%;
+    display: flex;
+    flex-direction: column;
 }
 
 .header{
@@ -92,4 +94,10 @@
 
 .doctorsRegForm{
     padding: 20px;
+}
+
+.profileDetails{
+    display: flex;
+    justify-content: center;
+    
 }

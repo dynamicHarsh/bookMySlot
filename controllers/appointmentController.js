@@ -32,15 +32,21 @@ const addAppointment=async (req,res)=>{
         const patient= await userModel.findOne({_id: newAppointment.patientId});
         const patientPhone=patient.phone;
         let resp=await newAppointment.save();
-        const msgRes=await twilio.messages.create({
-            from: "+12564747323",
-            to: `+91${patientPhone}`,
-            body: `.\nDear ${patient.name},\nWe are pleased to confirm the successful booking of your appointment at Emmet Hospital. Your health and well-being are our top priorities, and we look forward to providing you with exceptional care.\n Appointment Details:\nDoctor:Dr. ${newAppointment.doctorName}\nExpected Slot: ${newAppointment.slot}\nPlease arrive 15 minutes prior to your appointment to complete any necessary paperwork and ensure a smooth check-in process. If you have any medical records, test results, or relevant documents, kindly bring them with you.\nIf you have any questions or require further information, please feel free to contact at ${newAppointment.phone}\nThank you for choosing Emmet Hospital for your healthcare needs. We look forward to serving you and assisting you on your journey to better health.\nSincerely,\nTeam Emmet
-            `
-        })
-        if(msgRes){
-            console.log('Message has been sent Successfully');
+        try{
+            const msgRes=await twilio.messages.create({
+                from: "+12564747323",
+                to: `+91${patientPhone}`,
+                body: `.\nDear ${patient.name},\nWe are pleased to confirm the successful booking of your appointment at Emmet Hospital. Your health and well-being are our top priorities, and we look forward to providing you with exceptional care.\n Appointment Details:\nDoctor:Dr. ${newAppointment.doctorName}\nExpected Slot: ${newAppointment.slot}\nPlease arrive 15 minutes prior to your appointment to complete any necessary paperwork and ensure a smooth check-in process. If you have any medical records, test results, or relevant documents, kindly bring them with you.\nIf you have any questions or require further information, please feel free to contact at ${newAppointment.phone}\nThank you for choosing Emmet Hospital for your healthcare needs. We look forward to serving you and assisting you on your journey to better health.\nSincerely,\nTeam Emmet
+                `
+            })
+        if(msgRes){console.log('Message sent successfully');}
         }
+        catch(err){
+            console.log('Phone no. is invalid');
+        }
+    
+        
+        
         res.status(201).send({message: 'Appointment Booked Successfully',success: true});
         }
         else{
