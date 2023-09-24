@@ -5,6 +5,7 @@ import axios from 'axios'
 import { speciality } from '../Data/speciality'
 import {useSelector, useDispatch} from 'react-redux'
 import { showLoading,hideLoading } from '../redux/features/alertSlice';
+import "../styles/homeStyles.css"
 const Booking = () => {
 
   const {user}=useSelector(state=>state.user)
@@ -15,8 +16,11 @@ const Booking = () => {
 
     const handleFinish=async (values)=>{
         try{
+          
           values.advDate=values.advDate.toISOString();
+          
           dispatch(showLoading());
+          
           const data={speciality: values.speciality,concern: values.concern,patientId: user.id,patientName: user.name,date: values.advDate};
           const res=await axios.post('/user/book',data)
           if(res.data.success){
@@ -42,8 +46,8 @@ const Booking = () => {
   (option?.label ?? '').toLowerCase().includes(input.toLowerCase());
   return (
     <Layout>
-    <h1 className='text-center'>Get Appointment</h1>
-    <Form layout='vertical'  onFinish={handleFinish}>
+    <h2 className='text-center' style={{padding:10, color: 'white'}}>Get Appointment</h2>
+    <Form className="booking-form" layout='vertical'  onFinish={handleFinish}>
     <Row className='d-flex justify-content-center text-center mt-3'>
         <Col xs={24} md={24} lg={8}>
         <Form.Item label="Specialization" name="speciality" required rules={[{required: true}]}>

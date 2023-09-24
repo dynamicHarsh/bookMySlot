@@ -8,6 +8,7 @@ import {message,Table,Pagination} from 'antd'
 
 
 
+
 const AppointmentPage = () => {
     const [appointments,setAppointments]=useState([]);
     const [admin,setAdmin]=useState(false);

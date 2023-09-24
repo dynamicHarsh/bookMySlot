@@ -8,7 +8,7 @@ import {Link,useNavigate} from 'react-router-dom'
 import {useDispatch} from 'react-redux'
 import { showLoading,hideLoading } from '../redux/features/alertSlice';
 import { speciality } from '../Data/speciality'
-
+import "../styles/homeStyles.css";
 
 const RegisterDoctor = () => {
     const [selectedImage, setSelectedImage] = useState(null);
@@ -44,9 +44,9 @@ const RegisterDoctor = () => {
     
     <Layout>
     <div className='doctorsRegForm'>
-    <h1 className='text-center'>Register Doctor</h1>
+    <h2 className='text-center'>Register Doctor</h2>
 
-        <Form layout='vertical' onFinish={handleFinish} >
+        <Form className='doctor-form' layout='vertical' onFinish={handleFinish} >
     <h6 className='text-light'>Personal Details</h6>
     <Row gutter='20'>
         <Col xs={24} md={24} lg={8}>

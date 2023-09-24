@@ -1,10 +1,10 @@
 import { Layout, Space, Row, Col, Button } from "antd";
 import React from "react";
-import "./HomePage.css";
+import "../styles/HomePage.css";
 import { Typography } from "antd";
 import { TypeAnimation } from 'react-type-animation';
-import { Link } from "react-router-dom";
 
+import Nav from '../components/Nav';
 
 // images
 import doctor from "../images/dmain1.png";
@@ -12,22 +12,14 @@ import neurology from '../images/neurology.webp'
 import generalphysician from '../images/generalphysician.webp'
 import orthopaedics from '../images/orthopaedics.webp'
 import cardiology from '../images/cardiology.webp'
+import { Link } from "react-router-dom";
 import gynecologist from '../images/gynecologist.webp'
 import { Card} from "antd";
+import "../styles/homeStyles.css";
 const { Meta } = Card;
+const { Header,Footer, Content } = Layout;
 
-const { Header, Footer, Content } = Layout;
-const headerStyle = {
-  textAlign: "center",
-  color: "#fff",
-  height: 40,
-  paddingInline: 50,
-  padding: 10,
-  lineHeight: "64px",
-  // backgroundColor: "#FFF0F5",
-  // border: "2px solid #7dbcea",
-  backgroundImage: "linear-gradient(#FFF0F5,white )",
-};
+
 const contentStyle = {
   textAlign: "center",
   minHeight: "90vh",
@@ -55,95 +47,7 @@ const HomePage = () => {
         className="space"
       >
         
-          <Header style={headerStyle} className="headerStyle">
-            <Row>
-              <Col flex="1" className="column logo"></Col>
-              <Col flex="2" className="column navigation">
-                <Col flex="1">
-                  <Button
-                    style={{
-                      background: "#FFF0F5",
-                      fontWeight: "bolder",
-                      color: "darkorchid",
-                      border: "transparent",
-                      backgroundImage: "linear-gradient(#FFF0F5,white )",
-                    }}
-                    className="antBtn"
-                  >
-                    Process
-                  </Button>
-                </Col>
-                <Col flex="1">
-                  <Button
-                    style={{
-                      background: "#FFF0F5",
-                      fontWeight: "bolder",
-                      color: "darkorchid",
-                      border: "transparent",
-                      backgroundImage: "linear-gradient(#FFF0F5,white )",
-                    }}
-                    className="antBtn"
-                  >
-                    About
-                  </Button>
-                </Col>
-                <Col flex="1">
-                  <Button
-                    style={{
-                      background: "#FFF0F5",
-                      fontWeight: "bolder",
-                      color: "darkorchid",
-                      border: "transparent",
-                      backgroundImage: "linear-gradient(#FFF0F5,white )",
-                    }}
-                    className="antBtn"
-                  >
-                    Consultants
-                  </Button>
-                </Col>
-                <Col flex="1">
-                  <Button
-                    style={{
-                      background: "#FFF0F5",
-                      fontWeight: "bolder",
-                      color: "darkorchid",
-                      border: "transparent",
-                      backgroundImage: "linear-gradient(#FFF0F5,white )",
-                    }}
-                    className="antBtn"
-                  >
-                    Contact
-                  </Button>
-                </Col>
-              </Col>
-              <Col flex="1" className="column button">
-                <Button
-                  style={{
-                    margin: 5,
-                    position: "relative",
-                    top: "1.2em",
-                    left: "1.3em",
-                  }}
-                >
-                  {" "}
-                  Call:9743xxxxxx
-                </Button>
-                <Button
-                  type="primary"
-                  style={{
-                    margin: 5,
-                    position: "relative",
-                    top: "1.2em",
-                    left: "10%",
-                  }}
-                >
-                  <Link to="/login" style={{ textDecoration: "none" }}>
-                    Login/Register
-                  </Link>
-                </Button>
-              </Col>
-            </Row>
-          </Header>
+         <Nav/>
           <Content style={contentStyle} className="headerStyle">
             <Row>
               <Col flex="1" className="contentt tagline">
@@ -295,9 +199,7 @@ const HomePage = () => {
                   <Row>Blog</Row>
                   <Row>Carrers</Row>
                 </div>
-                <div>
-                  <Row>All rights reserved by Emmet</Row>
-                </div>
+                
               </Col>
               <Col className="gutter-row" span={6}>
                 <div style={{ lineHeight: "200%" }}>
@@ -316,6 +218,7 @@ const HomePage = () => {
                 <div></div>
               </Col>
             </Row>
+            <div className="Row">All rights Reserved © Emmet 2023</div>
           </Footer>
         
       </Space>

@@ -1,16 +1,25 @@
 const appointmentModel=require('../models/appointmentModel');
 const doctorModel=require('../models/doctorModel');
 const userModel=require('../models/userModel')
+
+
+
+
 const dotenv=require('dotenv');
 dotenv.config();
 const twilio=require('twilio')(process.env.Twilio_SID,process.env.Twilio_AUTH);
 
+
+
+
+
+
 const addAppointment=async (req,res)=>{
     try{
         let data=req.body;
-        // console.log(data);
-        //Appointment Scheduling algorithm
+        
         let availableDoctor=await doctorModel.findOne({present: true,speciality: data.speciality}).sort({inLine: 1});
+        
         if(availableDoctor){
             let inLine=availableDoctor.inLine;
         availableDoctor.inLine=inLine+1;
@@ -20,17 +29,24 @@ const addAppointment=async (req,res)=>{
         let time=new Date();
         let HH=time.getHours();
         let mm=time.getMinutes();
-
-        let slotMM=Math.ceil(mm/appTime)*appTime+(inLine-1)*appTime;
+        
+        let slotMM=Math.ceil(mm/appTime)*appTime+(inLine>0?(inLine)*appTime: 0);
         let hINCR=Math.floor(slotMM/60);
         slotMM=slotMM%60;
         let slotHH=HH+hINCR;
         // console.log('HH:',slotHH,' MM:',slotMM);
         time.setHours(slotHH),time.setMinutes(slotMM),time.setSeconds(0);
         await doctorModel.findOneAndUpdate({_id: availableDoctor._id},availableDoctor);
-        const newAppointment=new appointmentModel({...data,doctorId: availableDoctor._id,doctorName: availableDoctor.firstname+" "+availableDoctor.lastname,slot: time.toLocaleString(),phone: availableDoctor.phone});
+        const doctorName=availableDoctor.firstname+" "+availableDoctor.lastname
+        const newAppointment=new appointmentModel({...data,doctorId: availableDoctor._id,doctorName: doctorName,slot: time.toLocaleString(),phone: availableDoctor.phone});
         const patient= await userModel.findOne({_id: newAppointment.patientId});
         const patientPhone=patient.phone;
+    
+
+        
+
+
+
         let resp=await newAppointment.save();
         try{
             const msgRes=await twilio.messages.create({
@@ -50,7 +66,9 @@ const addAppointment=async (req,res)=>{
         res.status(201).send({message: 'Appointment Booked Successfully',success: true});
         }
         else{
-            const newAppointment=new appointmentModel([...data,{status: 'waiting'}]);
+            
+            const info={patientId: data.patientId,patientName: data.patientName,concern: data.concern,status: "waiting",speciality: data.speciality};
+            const newAppointment=new appointmentModel(info);
             let resp=await newAppointment.save();
         res.status(201).send({message: 'Appointment Waitlisted',success: true});
         }
@@ -68,12 +86,12 @@ const getAppointments=async(req,res)=>{
         let user=req.body;
         if(user.isAdmin){
 
-            const app=await appointmentModel.find();
+            const app=await appointmentModel.find().sort({createdAt: -1});
             res.status(200).send({success: true,message: `Apppointment Fetched Successfully`,app});
         }
         else{
            
-            const app=await appointmentModel.find({patientId: user.id});
+            const app=await appointmentModel.find({patientId: user.id}).sort({createdAt: -1});
             res.status(200).send({success: true,message: `Apppointment Fetched Successfully`,app});
         }
     }
