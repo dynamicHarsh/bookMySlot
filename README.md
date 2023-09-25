@@ -35,6 +35,10 @@ A fully automated hospital appointment scheduling web-app build using MERN and p
 - Patient Feedback to improve services and patient satisfaction
 - Emergency Helpline number of hospitals for patients
 
+  ## 🚀 Demo
+  ![demo](https://github.com/dynamicHarsh/bookMySlot/assets/104693483/939c9cd3-9184-4612-9bf8-52db43f5fb7d)
+
+
 Clone the project
 
 ```bash

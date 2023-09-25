@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect ,useRef} from 'react'
 import {Navigate} from 'react-router-dom'; 
 import {useSelector, useDispatch} from 'react-redux'
 import axios from 'axios';
@@ -31,14 +31,17 @@ export default function ProtectedRoute({children}){
       console.log(error);
     }
   };
-
+  const initialized=useRef(false);
   useEffect(()=>{
-    
-    if(user==null){
+    if(!initialized.current){
+      initialized.current=true
+      if(user==null){
       
-      getUser()
+        getUser()
+      }
     }
-  },[user,getUser]);
+    
+  },[]);
 
   if(sessionStorage.getItem('token')){
     return children;

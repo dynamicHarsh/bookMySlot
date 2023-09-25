@@ -17,7 +17,7 @@ const Layout = ({children}) => {
     const handleLogout=()=>{
         sessionStorage.clear();
         Cookies.remove('login');
-        message.success('Logout Successfully');
+        message.success('Logged Out Successfully');
         dispatch(setUser(null));
     }
 
@@ -43,7 +43,7 @@ const Layout = ({children}) => {
                     
                     <div className={`menu-items ` }onClick={handleLogout}>
                                     <i className='fa-solid fa-right-from-bracket'></i>
-                                    <Link to='/login'>Logout</Link>
+                                    <Link to='/'>Logout</Link>
                                 </div>
                            
 
@@ -53,7 +53,7 @@ const Layout = ({children}) => {
                 <div className="content">
                     <div className="header">
                     <div className="header-content">
-                    <i class="fa-solid fa-bell"></i>
+                    <i className="fa-solid fa-bell"></i>
                     <Link to='/profile'>{user?.name}</Link>
                     </div>
                     

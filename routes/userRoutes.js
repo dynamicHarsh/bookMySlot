@@ -1,7 +1,9 @@
 const express=require('express');
-const { loginController, registerController,authController } = require('../controllers/userController');
+const { loginController, registerController,authController ,profileController, getUsers} = require('../controllers/userController');
 const authMiddleware = require('../middlewares/authMiddleware');
-const {addDoctor}= require('../controllers/doctorController');
+const {addDoctor,getDoctors}= require('../controllers/doctorController');
+const {addAppointment,getAppointments,createSession}= require('../controllers/appointmentController');
+
 const userRouter=express.Router();
 
 userRouter.post('/login',loginController);
@@ -12,4 +14,13 @@ userRouter.post('/getUserData',authMiddleware,authController);
 
 userRouter.post('/addDoctor',addDoctor);
 
+userRouter.get('/getDoctors',getDoctors);
+
+userRouter.get('/getUsers',getUsers);
+
+userRouter.post('/book',addAppointment);
 module.exports=userRouter;
+
+
+userRouter.post('/appointments',getAppointments);
+userRouter.post('/profile',profileController);

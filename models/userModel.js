@@ -10,6 +10,19 @@ const userSchema=new mongoose.Schema({
         type: String,
         required: [true,'email is required']
     },
+    phone:{
+        type: String,
+        required: [true,'phone is required']
+    },
+    location: {  
+        type: String,
+        default: null,
+      },
+      gender: {
+        type: String,
+        enum: ["Male", "Female", "Other"],
+        default: null,
+      },
     password: {
         type: String,
         required: [true,'password is required']
