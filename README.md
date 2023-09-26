@@ -1,5 +1,7 @@
 # bookMySlot
-A fully automated hospital appointment scheduling web-app build using MERN and python
+A fully automated hospital appointment scheduling web-app build using MERN and python.
+
+<img align="right" alt="Hospital" width="400" src="https://cdn.dribbble.com/users/1461762/screenshots/10063212/media/22b2fe3deea61ccaefb47cefc3ab7663.png?resize=1000x750&vertical=center">
 
 
 ## 🖥️ Tech Stack
