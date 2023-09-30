@@ -1,8 +1,11 @@
 # bookMySlot
 A fully automated hospital appointment scheduling web-app build using MERN and python.
 
-
-
+**Mobile App:**
+  <a href='https://github.com/Asmit2021/book_my_slot'> book_my_slot </a>
+ 
+**Face App:**
+  <a href='https://github.com/SumitSarkar969/Bookmyslot_FaceApp'> Bookmyslot_FaceApp </a>
 
 
 ## 🖥️ Tech Stack
@@ -26,8 +29,7 @@ A fully automated hospital appointment scheduling web-app build using MERN and p
 
 ![Python](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54)
 
-
-## 🚀 Features
+## 🚀Enabled Features
 - Secure Login for Doctors and patients with role based access control. 
 - Hospitals may register doctors
 - Patients may book an appointment
@@ -38,6 +40,14 @@ A fully automated hospital appointment scheduling web-app build using MERN and p
 - Doctors may view their scheduled appointments
 - Patient Feedback to improve services and patient satisfaction
 - Emergency Helpline number of hospitals for patients
+  
+## 🚀 Upcoming Features.
+- Advanced analytics dashboard: Showing appointment trends for admin.
+-  Multi-Location Support: For hospitals with multiple locations, the system can help patients choose appointments at the most convenient site based on doctor availability.
+-  Telehealth Integration: If a doctor is not physically present but available for telehealth consultations, the system can facilitate virtual appointments, expanding access to healthcare services.
+-  Chat Bot: An A.I Chatbot used at the time of registration in which patient will add the symptoms and a problems and chatbot will do registration on behalf of patient.
+-  Waitlist Management: Patients can be placed on waitlists for preferred doctors, and the system can automatically notify them if an appointment slot becomes available due to cancellations.
+
 
   ## 🚀 Demo
   ![demo](https://github.com/dynamicHarsh/bookMySlot/assets/104693483/939c9cd3-9184-4612-9bf8-52db43f5fb7d)
