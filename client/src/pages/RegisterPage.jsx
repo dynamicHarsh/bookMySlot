@@ -1,11 +1,36 @@
 import React from 'react'
-import { Form, Input,message} from 'antd';
+import { Form, Input,message,Select} from 'antd';
 import '../styles/registerStyles.css';
 import {Link,useNavigate} from 'react-router-dom'
 import axios from 'axios';
 import {useDispatch} from 'react-redux'
 import { showLoading,hideLoading } from '../redux/features/alertSlice';
+
+
 const RegisterPage = () => {
+    const [form] = Form.useForm();
+    const onGenderChange = (value) => {
+        switch (value) {
+          case 'Male':
+            form.setFieldsValue({
+              note: 'Hi, man!',
+            });
+            break;
+          case 'Female':
+            form.setFieldsValue({
+              note: 'Hi, lady!',
+            });
+            break;
+          case 'Other':
+            form.setFieldsValue({
+              note: 'Hi there!',
+            });
+            break;
+          default:
+        }
+      };
+
+    const { Option } = Select;
 
     const navigate=useNavigate();
     const dispatch=useDispatch();
@@ -28,8 +53,11 @@ const RegisterPage = () => {
             message.error('Something went wrong');
         }
     }
+    
+    
   return (
     <>
+    
         <div className="bg"></div>
     <div className='form-container'>
     <Form layout='vertical' onFinish={onFinishHandler} className='register-form'>
@@ -46,13 +74,22 @@ const RegisterPage = () => {
     <Form.Item label='Password' name='password'>
         <Input type='password' required/>
     </Form.Item>
+    <Form.Item name="gender" label="Gender" rules={[{ required: true }]}>
+        <Select
+          placeholder="Select a option and change input text above"
+          onChange={onGenderChange}
+          allowClear
+        >
+          <Option value="Male">Male</Option>
+          <Option value="Memale">Female</Option>
+          <Option value="Other">Other</Option>
+        </Select>
+      </Form.Item>
     <div className="register-buttons">
     <Link to='/login' >Already a user?</Link>
     <button className='btn btn-primary' type='submit'>Register</button>
     </div>
     
-    
-
     </Form>
         
     </div>
