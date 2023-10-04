@@ -6,7 +6,7 @@ import harsh from '../images/harsh.jpg'
 import asmit from '../images/asmit.jpeg'
 import sagar from '../images/sagar.jpeg'
 import sumit from '../images/sumit.jpeg'
-import shruti from '../images/shruti.avif'
+import shruti from '../images/shruti.jpeg'
 import naman from '../images/naman.jpeg'
 const TeamPage = () => {
   return (
@@ -127,7 +127,7 @@ const TeamPage = () => {
               <a href="#">
                 <i class="fab fa-twitter"></i>
               </a>
-              <a href="#">
+              <a href="https://www.linkedin.com/in/shruti-sharma-5a8774217">
                 <i class="fab fa-linkedin"></i>
               </a>
               <a href="#">
