@@ -2,7 +2,6 @@ const userModel=require('../models/userModel');
 const bcrypt=require('bcryptjs');
 const jwt=require('jsonwebtoken');
 const dotenv=require('dotenv');
-const { findById } = require('../models/userModel');
 dotenv.config();
 const twilio=require('twilio')(process.env.Twilio_SID,process.env.Twilio_AUTH);
 
@@ -21,20 +20,21 @@ const registerController=async (req,res)=>{
         data.password=hashedPassword;
         const newUser=new userModel(data);
         await newUser.save();
-        
         try{
-        const msgRes=await twilio.messages.create({
-            from: "+12564747323",
-            to: `+91${newUser.phone}`,
-            body: `.\nDear ${newUser.name}\nWelcome to Emmet Hospital!\nWe're delighted to have you as a valued member of our healthcare community. Your successful registration marks the beginning of our journey together, and we're here to provide you with the best care possible.\nHere are the details we received:\nName: ${newUser.name}\nEmail: ${newUser.email}\nPhone: ${newUser.phone}\nOur commitment is to prioritize your health and well-being. If you have any questions or need assistance, please don't hesitate to reach out to us. You can also use our patient portal for convenient access to your medical records and appointment scheduling.\nThank you for choosing Emmet Hospital. We look forward to providing you with exceptional care and support.\nWarm regards,\nTeam Emmet`
-        })
-        if(msgRes){
-            console.log('Message has been sent Successfully');
-        }
+            const msgRes=await twilio.messages.create({
+                from: "+12564747323",
+                to: `+91${data.phone}`,
+                body: `\nDear ${newUser.name}\nWelcome to Emmet Hospital!\nWe're delighted to have you as a valued member of our healthcare community. Your successful registration marks the beginning of our journey together, and we're here to provide you with the best care possible.\nHere are the details we received:\nName: ${newUser.name}\nEmail: ${newUser.email}\nPhone: ${newUser.phone}\nOur commitment is to prioritize your health and well-being. If you have any questions or need assistance, please don't hesitate to reach out to us. You can also use our patient portal for convenient access to your medical records and appointment scheduling.\nThank you for choosing Emmet Hospital. We look forward to providing you with exceptional care and support.\nWarm regards,\nTeam Emmet`
+                
+            })
+            if(msgRes){
+                console.log('Message has been sent Successfully');
+            }
         }
         catch(err){
-            console.log(err.message)
+            console.log(err.message);
         }
+        
         res.status(201).send({message: 'User Registered Successfully', success: true});
 
     }
@@ -75,7 +75,7 @@ try{
         return res.status(200).send({message: "User Not Found",success: false});
     }
     else{
-        res.status(200).send({success: true,data: {name: user.name,email: user.email,isAdmin: user.isAdmin,id: user._id,phone: user.phone}});
+        res.status(200).send({success: true,data: {name: user.name,email: user.email,role: user.role,id: user._id,phone: user.phone}});
     }
 }
 catch(err){
@@ -87,7 +87,7 @@ catch(err){
 const getUsers=async (req,res)=>{
     try{
         
-        const users=await userModel.find({isAdmin: false});
+        const users=await userModel.find({role: 'user'});
         res.status(201).send({message: 'Doctor Fetched Successfully', success: true,users});
     }
     catch(error){

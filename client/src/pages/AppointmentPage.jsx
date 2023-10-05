@@ -11,7 +11,7 @@ import {message,Table,Pagination} from 'antd'
 
 const AppointmentPage = () => {
     const [appointments,setAppointments]=useState([]);
-    const [admin,setAdmin]=useState(false);
+    const [role,setRole]=useState('user');
     const [currentPage, setCurrentPage] = useState(1);
     const pageSize = 5; 
   const handleChangePage = (page) => {
@@ -39,7 +39,7 @@ const AppointmentPage = () => {
           setAppointments(upadatedRes);
           
           // console.log(appointments);
-          setAdmin(user.isAdmin)
+          setRole(user.role)
          }
          
         }
@@ -57,7 +57,7 @@ const AppointmentPage = () => {
         
       },[]);
       let columns;
-      if(admin){
+      if(role=='admin'){
         columns=[
           {
             title: 'Appointment_ID',
@@ -109,6 +109,39 @@ const AppointmentPage = () => {
           
           
       ]
+    }
+    else if(role=='doctor'){
+      columns=[
+        {
+          title: 'Appointment_ID',
+          dataIndex: 'key',
+          key: 'key',
+          width: '10rem',
+          render: (text)=> "XXX"+String(text).substring(14)
+        },
+        {
+          title: 'Patients Name',
+          dataIndex: 'patientName',
+          key: 'patientName',
+          width: '10rem'
+        },
+        {
+          title: 'Status',
+          dataIndex: 'status',
+          key: 'status',
+          render: (text)=>(text==="waiting")?<span className='bg-warning text-dark'>Waiting</span>:((text==="seen")?<span className='bg-primary text-white'>Seen</span>:<span className='bg-success text-white'>Alloted</span>)
+        },
+        {
+          title: 'Estimated Slot',
+          dataIndex: 'slot',
+          key: 'slot',
+         
+          render: (text)=> text?String(text).substring(0,25):"---"
+        },
+        
+        
+        
+    ]
     }
     else{
       columns=[

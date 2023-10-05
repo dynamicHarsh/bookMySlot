@@ -1,5 +1,5 @@
 import React,{useEffect} from 'react'
-import { adminMenu, userMenu } from '../Data/data';
+import { adminMenu, userMenu, doctorMenu } from '../Data/data';
 import '../styles/layoutStyles.css';
 import { Link,useLocation,useNavigate } from 'react-router-dom';
 import {useSelector, useDispatch} from 'react-redux'
@@ -10,7 +10,7 @@ const Layout = ({children}) => {
     const {user}= useSelector(state=>state.user)
     const location=useLocation();
    const dispatch=useDispatch();
-   const sidebarMenu=(user?.isAdmin)? adminMenu: userMenu;
+   const sidebarMenu=(user?.role=='user')? userMenu: ((user?.role=='doctor')?doctorMenu: adminMenu);
 
 
     const Navigate=useNavigate();

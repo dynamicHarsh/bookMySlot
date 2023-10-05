@@ -132,9 +132,15 @@ const getAppointments=async(req,res)=>{
         
         //Waiting
 
-        if(user.isAdmin){
+        if(user.role=='admin'){
 
             const app=await appointmentModel.find().sort({createdAt: -1});
+            res.status(200).send({success: true,message: `Apppointment Fetched Successfully`,app});
+        }
+        else if(user.role=='doctor'){
+            const docId=await doctorModel.findOne({email: user.email});
+            const app=await appointmentModel.find({doctorId: docId._id}).sort({createdAt: -1});
+            
             res.status(200).send({success: true,message: `Apppointment Fetched Successfully`,app});
         }
         else{

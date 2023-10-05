@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/static/css/main.ef7ddd64.css",
-    "main.js": "/static/js/main.0daf3375.js",
+    "main.js": "/static/js/main.fd30090f.js",
     "static/js/787.c4e7f8f9.chunk.js": "/static/js/787.c4e7f8f9.chunk.js",
     "static/media/loginbg.jpg": "/static/media/loginbg.827efae0243b55f2957f.jpg",
     "static/media/asmit.jpeg": "/static/media/asmit.9f92897fb356700c6db3.jpeg",
@@ -23,11 +23,11 @@
     "static/media/cardiology.webp": "/static/media/cardiology.9c2eaca047df3faa805b.webp",
     "index.html": "/index.html",
     "main.ef7ddd64.css.map": "/static/css/main.ef7ddd64.css.map",
-    "main.0daf3375.js.map": "/static/js/main.0daf3375.js.map",
+    "main.fd30090f.js.map": "/static/js/main.fd30090f.js.map",
     "787.c4e7f8f9.chunk.js.map": "/static/js/787.c4e7f8f9.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.ef7ddd64.css",
-    "static/js/main.0daf3375.js"
+    "static/js/main.fd30090f.js"
   ]
 }

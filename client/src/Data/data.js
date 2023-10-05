@@ -59,3 +59,18 @@ export const adminMenu=[
     },
 
 ]
+
+//doctor menu
+
+export const doctorMenu=[
+    {
+        name: 'Home',
+        path: '/home',
+        icon: 'fa-solid fa-house'
+    },
+    {
+        name: 'Appointments',
+        path: '/appointments',
+        icon: 'fa-solid fa-user'
+    },
+]
