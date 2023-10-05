@@ -22,13 +22,18 @@ const registerController=async (req,res)=>{
         const newUser=new userModel(data);
         await newUser.save();
         
+        try{
         const msgRes=await twilio.messages.create({
             from: "+12564747323",
-            to: `+91${newUser.phone}` ,
+            to: `+91${newUser.phone}`,
             body: `.\nDear ${newUser.name}\nWelcome to Emmet Hospital!\nWe're delighted to have you as a valued member of our healthcare community. Your successful registration marks the beginning of our journey together, and we're here to provide you with the best care possible.\nHere are the details we received:\nName: ${newUser.name}\nEmail: ${newUser.email}\nPhone: ${newUser.phone}\nOur commitment is to prioritize your health and well-being. If you have any questions or need assistance, please don't hesitate to reach out to us. You can also use our patient portal for convenient access to your medical records and appointment scheduling.\nThank you for choosing Emmet Hospital. We look forward to providing you with exceptional care and support.\nWarm regards,\nTeam Emmet`
         })
         if(msgRes){
             console.log('Message has been sent Successfully');
+        }
+        }
+        catch(err){
+            console.log(err.message)
         }
         res.status(201).send({message: 'User Registered Successfully', success: true});
 

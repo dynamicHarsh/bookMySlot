@@ -1,0 +1,105 @@
+.headerStyle{
+    text-align: center;
+    color: #fff;
+    background-color: white;
+    font-family: 'Merriweather', serif;
+    font-family: 'Nunito', sans-serif;
+    font-family: 'Young Serif', serif;
+}
+
+.ColLink{
+    position: relative;
+    text-decoration: none;
+    font-size:1.5em;
+    font-weight:700;
+    color: #352F44;
+    padding: .5em 1rem;
+    margin: 1em .5em;
+    font-family: 'Young Serif', serif;
+    font-family: 'Merriweather', serif;
+    font-family: 'Nunito', sans-serif;
+    font-family: 'Gabarito', cursive ;
+}
+
+#navi a{
+    border-radius: 5px;
+    transition: 0.5s;
+}
+
+
+#navi a:hover{
+    border-radius: 5px;
+    background-color: rgb(218, 218, 218);
+    
+}
+
+#menu-hidden{
+    justify-content: flex-end;
+}
+#menu-visible{
+    justify-content: flex-end;
+}
+
+#Hamcont{
+    display: none;
+}
+
+@media screen and (max-width:1170px){
+    #Rw{
+        justify-content: space-between;
+    }
+    #menu-hidden{
+        z-index: 7000;
+        position: fixed;
+        inset: 0 0 0 30%;
+        display: flex;
+        align-items: start;
+        flex-direction: column;
+        justify-content: space-between;
+        background: steelblue;
+        padding: min(20vh,5em) 4em;
+        background:  hsla(222, 100%, 8%, 0.623);
+        backdrop-filter: blur(1em);
+        transform: translateX(100%);
+        transition: ease-out 0.3s;
+        
+    }
+    #menu-visible{
+        z-index: 7000;
+        position: fixed;
+        inset: 0 0 0 30%;
+        display: flex;
+        align-items: start;
+        flex-direction: column;
+        flex-wrap: wrap-reverse;
+        justify-content: space-between;
+        background: steelblue;
+        padding: min(20vh,5em) 4em;
+        background:  hsla(222, 100%, 8%, 0.623);
+        backdrop-filter: blur(1em);
+        transform: translateX(0%);
+        transition: ease-out 0.3s;
+    }
+    #navi{
+        align-items: start;
+        display: flex;
+        flex-direction: column;
+        padding: 1em 0;
+    }
+    #navi a{
+        color: aliceblue;
+    }
+    #Log{
+        display: flex;
+        flex-direction: column;
+        align-items: start;
+        
+    }
+    #Hamcont{
+        display: flex;
+    }
+    
+}
+
+
+
