@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/static/css/main.f8c867ad.css",
-    "main.js": "/static/js/main.bb3d6f36.js",
+    "main.css": "/static/css/main.ef7ddd64.css",
+    "main.js": "/static/js/main.0daf3375.js",
     "static/js/787.c4e7f8f9.chunk.js": "/static/js/787.c4e7f8f9.chunk.js",
     "static/media/loginbg.jpg": "/static/media/loginbg.827efae0243b55f2957f.jpg",
     "static/media/asmit.jpeg": "/static/media/asmit.9f92897fb356700c6db3.jpeg",
@@ -14,19 +14,20 @@
     "static/media/naman.jpeg": "/static/media/naman.96198ead64cd6f0511b4.jpeg",
     "static/media/doctorReg.webp": "/static/media/doctorReg.e1688df4a6f88b8619aa.webp",
     "static/media/harsh.jpg": "/static/media/harsh.26971689fae8f66b554b.jpg",
+    "static/media/generalphysician.png": "/static/media/generalphysician.fe35e25174a376008426.png",
     "static/media/user-avatar.avif": "/static/media/user-avatar.4fb7ff8a54611d825b89.avif",
     "static/media/orthopaedics.webp": "/static/media/orthopaedics.0a986509e995c483143c.webp",
+    "static/media/Navicon.png": "/static/media/Navicon.619ce17eea8ebb23deb0.png",
     "static/media/neurology.webp": "/static/media/neurology.25e91a7b9132efb28393.webp",
     "static/media/gynecologist.webp": "/static/media/gynecologist.251be3c81b53ad7217ab.webp",
     "static/media/cardiology.webp": "/static/media/cardiology.9c2eaca047df3faa805b.webp",
-    "static/media/generalphysician.webp": "/static/media/generalphysician.32302ea128df5db6b909.webp",
     "index.html": "/index.html",
-    "main.f8c867ad.css.map": "/static/css/main.f8c867ad.css.map",
-    "main.bb3d6f36.js.map": "/static/js/main.bb3d6f36.js.map",
+    "main.ef7ddd64.css.map": "/static/css/main.ef7ddd64.css.map",
+    "main.0daf3375.js.map": "/static/js/main.0daf3375.js.map",
     "787.c4e7f8f9.chunk.js.map": "/static/js/787.c4e7f8f9.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.f8c867ad.css",
-    "static/js/main.bb3d6f36.js"
+    "static/css/main.ef7ddd64.css",
+    "static/js/main.0daf3375.js"
   ]
 }
