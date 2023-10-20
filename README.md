@@ -52,6 +52,7 @@ A fully automated hospital appointment scheduling web-app build using MERN and p
   ## 🚀 Demo
   ![demo](https://github.com/dynamicHarsh/bookMySlot/assets/104693483/939c9cd3-9184-4612-9bf8-52db43f5fb7d)
 
+## 🚀 Deployment
 
 Clone the project
 
@@ -75,6 +76,29 @@ Start the server
 
 ```bash
   npm run dev
+```
+
+## 🚀 Sample Accounts
+
+Admin
+
+```bash
+ Id: admin@gmail.com
+ Password: admin
+```
+
+User
+
+```bash
+ Id: user@gmail.com
+ Password: user
+```
+
+Doctor
+
+```bash
+ Id: doctor@gmail.com
+ Password: doctor
 ```
 
 
