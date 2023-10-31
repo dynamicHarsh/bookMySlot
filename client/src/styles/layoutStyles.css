@@ -81,15 +81,23 @@
     margin: 0 15px;
 }
 .header-content i{
+    margin-top: 10px;
     margin-right: 20px;
     font-size: 1.2rem;
 }
 .header-content a{
     text-decoration: none;
     font-size: 1.2rem;
-    color: blue;
+    color: black;
     margin: 0 10px;
     text-transform: uppercase;
+}
+
+.header-content h6 {
+    font-weight: bold;
+    font-size: medium;
+    padding-top: 15px;
+    padding-right: 30px;
 }
 
 .doctorsRegForm{

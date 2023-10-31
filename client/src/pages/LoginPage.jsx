@@ -36,7 +36,7 @@ const LoginPage = () => {
     <div className="bg"></div>
     <div className='form-container'>
     <Form layout='vertical' onFinish={onFinishHandler} className='register-form'>
-    <h1 className='text-center'>Login</h1>
+    <h1 className='text-center' style={{color:'black', fontWeight:'bold'}}>Login</h1>
     <Form.Item label='Email' name='email'>
         <Input type='email' required/>
     </Form.Item>

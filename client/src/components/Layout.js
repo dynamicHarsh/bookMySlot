@@ -53,8 +53,9 @@ const Layout = ({children}) => {
                 <div className="content">
                     <div className="header">
                     <div className="header-content">
+                    <h6>Privacy Policy&nbsp;&nbsp; |  &nbsp;&nbsp;Disclaimer&nbsp;&nbsp; | &nbsp;&nbsp;Contact&nbsp;&nbsp;</h6>
                     <i className="fa-solid fa-bell"></i>
-                    <Link to='/profile'>{user?.name}</Link>
+                    {/* <Link to='/profile'>{user?.name}</Link> */}
                     </div>
                     
                     </div>

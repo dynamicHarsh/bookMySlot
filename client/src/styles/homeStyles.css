@@ -1,15 +1,56 @@
-.illustration{
+.cards {
     display: flex;
     justify-content: center;
+    height: 25vh;
+    margin-top: 220px;
+    padding-left: 40px;
+    overflow: hidden;
 }
-.booking-form{
-    background-image: url(../images/appointment.png);
+
+.steps {
+    flex: 0 0 300px;
+    margin-right: 30px;
+    transition: transform 0.3s ease-in-out;
+    backdrop-filter: blur(5px);
+}
+
+.bgimg {
+    background-image: url('../images/bgimg.png');
     background-repeat: no-repeat;
-    background-position: center;
+    background-size: cover;
+    height: 80vh;
+    width: auto;
     
 }
 
-.doctor-form{
+.steps .content {
+    padding: 20px;
+    border: 5px solid #0c0d0e;
+    /* background-color: #70c9e4; */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    backdrop-filter: blur(8px);
+    align-content: center;
+    cursor: pointer;
+    background-image: linear-gradient(#352F44,#7b4ca1);
+    filter: brightness(0.8);
+    background-size: 0 100%;
+    background-repeat: no-repeat;
+    transition: .4s;
+}
+
+.steps .content:hover {
+    background-size: 100% 100%;
+}
+
+.booking-form {
+    background-image: url(../images/appointment.png);
+    background-repeat: no-repeat;
+    background-position: center;
+
+}
+
+.doctor-form {
     background-image: url(../images/doctorReg.webp);
     background-repeat: no-repeat;
     background-position: center;
@@ -17,9 +58,8 @@
 
 @media only screen and (max-width: 600px) {
     .departments {
-      flex-direction: column;
-      align-items: center;
-      
+        flex-direction: column;
+        align-items: center;
+
     }
-    
-  }
+}
