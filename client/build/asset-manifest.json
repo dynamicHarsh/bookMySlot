@@ -1,12 +1,12 @@
 {
   "files": {
-    "main.css": "/static/css/main.1f100f68.css",
+    "main.css": "/static/css/main.6b5d5862.css",
     "main.js": "/static/js/main.a90f8d98.js",
     "static/js/787.c4e7f8f9.chunk.js": "/static/js/787.c4e7f8f9.chunk.js",
-    "static/media/loginbg.jpg": "/static/media/loginbg.827efae0243b55f2957f.jpg",
     "static/media/bgimg.png": "/static/media/bgimg.0a951e030e0a92ca77b2.png",
     "static/media/asmit.jpeg": "/static/media/asmit.9f92897fb356700c6db3.jpeg",
     "static/media/sumit.jpeg": "/static/media/sumit.096b1c3f739f6475b0d8.jpeg",
+    "static/media/loginpage.jpg": "/static/media/loginpage.f875624d00c88dbb7aa3.jpg",
     "static/media/dmain1.png": "/static/media/dmain1.b24b079bcf6b57004954.png",
     "static/media/shruti.jpeg": "/static/media/shruti.ac10cc193e410ad4fade.jpeg",
     "static/media/appointment.png": "/static/media/appointment.56c9c38ee05ea2d6aa9b.png",
@@ -25,12 +25,12 @@
     "static/media/gynecologist.webp": "/static/media/gynecologist.251be3c81b53ad7217ab.webp",
     "static/media/cardiology.webp": "/static/media/cardiology.9c2eaca047df3faa805b.webp",
     "index.html": "/index.html",
-    "main.1f100f68.css.map": "/static/css/main.1f100f68.css.map",
+    "main.6b5d5862.css.map": "/static/css/main.6b5d5862.css.map",
     "main.a90f8d98.js.map": "/static/js/main.a90f8d98.js.map",
     "787.c4e7f8f9.chunk.js.map": "/static/js/787.c4e7f8f9.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.1f100f68.css",
+    "static/css/main.6b5d5862.css",
     "static/js/main.a90f8d98.js"
   ]
 }
