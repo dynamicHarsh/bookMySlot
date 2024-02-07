@@ -50,7 +50,7 @@ const addAppointment=async (req,res)=>{
         let resp=await newAppointment.save();
         try{
             const msgRes=await twilio.messages.create({
-                from: "+12564747323",
+                from: "+19382532027",
                 to: `+91${patientPhone}`,
                 body: `.\nDear ${patient.name},\nWe are pleased to confirm the successful booking of your appointment at Emmet Hospital. Your health and well-being are our top priorities, and we look forward to providing you with exceptional care.\nAppointment Details:\nDoctor:Dr. ${newAppointment.doctorName}\nExpected Slot: ${newAppointment.slot}\nPlease arrive 15 minutes prior to your appointment to complete any necessary paperwork and ensure a smooth check-in process. If you have any medical records, test results, or relevant documents, kindly bring them with you.\nIf you have any questions or require further information, please feel free to contact at ${newAppointment.phone}\nThank you for choosing Emmet Hospital for your healthcare needs. We look forward to serving you and assisting you on your journey to better health.\nSincerely,\nTeam Emmet
                 `
@@ -112,7 +112,7 @@ const getAppointments=async(req,res)=>{
                     try{
                         const patient=await userModel.findById(app.patientId);
                         const msgRes=await twilio.messages.create({
-                            from: "+12564747323",
+                            from: "+19382532027",
                             to: `+91${patient.phone}`,
                             body: `.\nDear ${patient.name},\nWe are pleased to inform you that your waitlisted appointment at Emmet has been scheduled and confirmed. We understand that you have been eagerly waiting for this appointment, and we appreciate your patience.\nAppointment Details:\nDoctor:Dr. ${doctorName}\nExpected Slot: ${time.toLocaleString()}\nPlease arrive 15 minutes prior to your appointment to complete any necessary paperwork and ensure a smooth check-in process. If you have any medical records, test results, or relevant documents, kindly bring them with you.\nIf you have any questions or require further information, please feel free to contact at ${availableDoctor.phone}\nThank you for choosing Emmet Hospital for your healthcare needs. We look forward to serving you and assisting you on your journey to better health.\nSincerely,\nTeam Emmet
                             `

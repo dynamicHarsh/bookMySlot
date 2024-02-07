@@ -19,10 +19,11 @@ const registerController=async (req,res)=>{
         const hashedPassword=await bcrypt.hash(password,salt);
         data.password=hashedPassword;
         const newUser=new userModel(data);
+        
         await newUser.save();
         try{
             const msgRes=await twilio.messages.create({
-                from: "+12564747323",
+                from: "+19382532027",
                 to: `+91${data.phone}`,
                 body: `\nDear ${newUser.name}\nWelcome to Emmet Hospital!\nWe're delighted to have you as a valued member of our healthcare community. Your successful registration marks the beginning of our journey together, and we're here to provide you with the best care possible.\nHere are the details we received:\nName: ${newUser.name}\nEmail: ${newUser.email}\nPhone: ${newUser.phone}\nOur commitment is to prioritize your health and well-being. If you have any questions or need assistance, please don't hesitate to reach out to us. You can also use our patient portal for convenient access to your medical records and appointment scheduling.\nThank you for choosing Emmet Hospital. We look forward to providing you with exceptional care and support.\nWarm regards,\nTeam Emmet`
                 
@@ -49,6 +50,8 @@ const loginController=async (req,res)=>{
     try{
         const data=req.body;
         const user=await userModel.findOne({email: data.email});
+        let alluser=await userModel.find();
+        
         if(!user){
             return res.status(200).send({message: "User not found",success: false});
         }

@@ -1,22 +1,24 @@
 .bg {
 
     background-image: url('../images/loginbg.jpg');
-    filter: blur(4px);
-    -webkit-filter: blur(2px);
+    /* filter: blur(4px);
+    -webkit-filter: blur(2px); */
     height: 100vh;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+
 }
 
-.form-container {
+.form-container  {
     display: flex;
     align-items: center;
     justify-content: center;
     position: absolute;
+    
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -59%);
+    transform: translate(-50%, -50%);
     z-index: 2;
     /* glassmorphism */
     background: rgba(255, 255, 255, 0.2);
@@ -29,7 +31,7 @@
 }
 
 .register-form {
-
+    
     padding: 30px;
     width: 400px;
     /* color: white; */
