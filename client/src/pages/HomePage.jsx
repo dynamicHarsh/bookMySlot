@@ -20,6 +20,15 @@ import ChatBot from "../components/Chatbot";
 import { useState } from "react";
 import { Card } from "antd";
 import "../styles/homeStyles.css";
+
+//Chatbot
+import Kommunicate from "@kommunicate/kommunicate-chatbot-plugin";
+
+Kommunicate.init("2c8834186be421cee3680b9473722f8fd", {
+  automaticChatOpenOnNavigation: true,
+  popupWidget: true
+});
+
 const { Meta } = Card;
 const { Header, Footer, Content } = Layout;
 
