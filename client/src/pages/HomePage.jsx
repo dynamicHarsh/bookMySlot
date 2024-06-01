@@ -14,14 +14,15 @@ import orthopaedics from "../images/orthopaedics.webp";
 import cardiology from "../images/cardiology.webp";
 import { Link } from "react-router-dom";
 import gynecologist from "../images/gynecologist.webp";
-import chatbot from "../images/chatbot.png";
-import ChatBot from "../components/Chatbot";
+
+import Chatbot from "../components/Chatbot";
 
 import { useState } from "react";
 import { Card } from "antd";
 import "../styles/homeStyles.css";
+import img from "../images/Navicon.png"
 const { Meta } = Card;
-const { Header, Footer, Content } = Layout;
+const { Footer, Content } = Layout;
 
 const contentStyle = {
   textAlign: "center",
@@ -32,7 +33,9 @@ const contentStyle = {
 };
 const footerStyle = {
   textAlign: "center",
-  color: "rgb(173, 108, 234)",
+  color: "#000000",
+  fontSize: "20px",
+  fontWeight: "bold",
   backgroundColor: " #FFF0F5",
   backgroundImage: "linear-gradient(#facbda,white )",
 };
@@ -42,10 +45,12 @@ const HomePage = () => {
 
   const generateChat = () => {
     setOpenChatbot(true);
-  };
-
+  }
   return (
     <>
+    <div >
+      <Chatbot/>
+    </div>
       <Nav />
       <Space
         direction="vertical"
@@ -114,34 +119,20 @@ const HomePage = () => {
             <Col flex="1" className="contentt image">
               <img
                 src={doctor}
+                alt="error"
                 style={{ width: 632.25, height: 450, filter: 100, padding: 10 }}
                 className="doctorImage"
               />
             </Col>
           </Row>
-          <div
-            className="chatbot"
-            style={{
-              display: "flex",
-              justifyContent: "flex-end",
-              alignItems: "center",
-            }}
-          >
-            {openChatbot && <ChatBot/>}
-            <img
-              src={chatbot}
-              alt={chatbot}
-              style={{
-                width: "6%",
-                height: "10%",
-                position: "fixed",
-                right: "3%",
-                bottom: "10px",
-              }}
-              onClick={generateChat}
-            />
+          <div>
+      <Chatbot />
+    
+           
+              
+      
           </div>
-          
+
         </Content>
 
         <div className="info">
@@ -264,31 +255,29 @@ const HomePage = () => {
             </Card>
           </div>
         </div>
-
+                   
         <Footer style={footerStyle}>
           <Row gutter={16}>
-            <Col className="gutter-row" span={5.33}>
-              <div style={{ color: "darkorchid", fontSize: "large" }}>
-                Emmet
-              </div>
+            <Col flex="1em" className="column logo">
+              <img style={{ position: "relative", height: "4.5em", padding: "0.5em 0.5em" }} src={img} alt="" />
             </Col>
 
             <Col className="gutter-row" span={5.33}></Col>
             <Col className="gutter-row" span={6}></Col>
           </Row>
-
+          &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
           <Row gutter={16}>
             <Col className="gutter-row" span={6}>
-              <div style={{ marginBottom: "5%", lineHeight: "200%" }}>
+              <div style={{ marginBottom: "5%", lineHeight: "250%" }}>
                 <Row>About Us</Row>
                 <Row>Annual CheckUp</Row>
                 <Row>Blog</Row>
-                <Row>Carrers</Row>
+
               </div>
             </Col>
 
             <Col className="gutter-row" span={6}>
-              <div style={{ lineHeight: "200%" }}>
+              <div style={{ lineHeight: "250%" }}>
                 <Row>Get a Diagnosis</Row>
                 <Row>How it Works</Row>
                 <Row>Privacy Policy</Row>
@@ -296,9 +285,18 @@ const HomePage = () => {
             </Col>
 
             <Col className="gutter-row" span={6}>
-              <div style={{ lineHeight: "200%" }}>
+              <div style={{ lineHeight: "250%" }}>
+                <Row>Hospitals in India</Row>
+                <Row>International Patients</Row>
+                <Row>Medical Procedures</Row>
+              </div>
+            </Col>
+
+            <Col className="gutter-row" span={6}>
+              <div style={{ lineHeight: "250%" }}>
                 <Row>Contact Us</Row>
                 <Row>FAQ's</Row>
+                <Row>Careers</Row>
               </div>
             </Col>
 
@@ -306,10 +304,11 @@ const HomePage = () => {
               <div></div>
             </Col>
           </Row>
-
+          &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
           <div className="Row">All rights Reserved © Emmet 2023</div>
         </Footer>
       </Space>
+
     </>
   );
 };

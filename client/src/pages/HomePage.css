@@ -9,16 +9,6 @@
   color: #facbda;
 }
 
-.logo {
-  /* border: 2px solid red; */
-}
-.navigation {
-  /* border: 2px solid red; */
-}
-.button {
-  /* border: 2px solid red; */
-}
-
 .contentt {
   min-height: 80vh;
   display: flex;
@@ -47,17 +37,14 @@
   width: 220px;
 }
 
-
 .info .info-heading{
   padding: 20px;
   text-align: center;
 }
 
 .info .info-heading h3{
-  color:#710193
+  color:#390193;
 }
-
-
 
 /* @keyframes myimage {
   from {
