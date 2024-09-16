@@ -13,7 +13,7 @@ connectDB();
 const app=express();
 
 app.use(cors({
-  origin: ["https://toupdate"],
+  origin: ["https://bookmyslot.vercel.app/"],
   methods: ["POST","GET"],
   credentials: true
 }))
