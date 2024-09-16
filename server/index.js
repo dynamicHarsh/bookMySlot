@@ -12,20 +12,17 @@ connectDB();
 
 const app = express();
 
-// CORS configuration
 const corsOptions = {
-  origin: 'https://bookmyslot.vercel.app',
-  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
-  allowedHeaders: ['Content-Type', 'Authorization'], // Specify allowed headers
-  credentials: true,
-  preflightContinue: false,
-  optionsSuccessStatus: 204,
+  origin: 'https://bookmyslot.vercel.app', // Allow requests from this origin
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'], // Methods allowed
+  allowedHeaders: ['Content-Type', 'Authorization'], // Headers allowed
+  credentials: true, // Allow credentials
+  optionsSuccessStatus: 200, // Some browsers choke on 204
 };
 
-// Apply CORS middleware globally
 app.use(cors(corsOptions));
 
-// Handle preflight (OPTIONS) requests
+// Handle preflight requests
 app.options('*', cors(corsOptions));
 
 app.use(express.json());
@@ -34,7 +31,6 @@ app.use(morgan('dev'));
 
 app.use('/user', userRouter);
 
-// Serve static files for client
 if (process.env.NODE_ENV === 'production') {
   app.use(express.static(path.join(__dirname, './client/build')));
   app.get('*', (req, res) => {
@@ -42,7 +38,7 @@ if (process.env.NODE_ENV === 'production') {
   });
 }
 
-const port = process.env.PORT || 5000;
+const port = process.env.PORT || 8080;
 app.listen(port, () => {
   console.log(`Server is running on port ${port} in ${process.env.NODE_ENV} mode`);
 });

@@ -14,8 +14,13 @@ const LoginPage = () => {
     try {
       dispatch(showLoading());
       console.log(values);
-      axios.defaults.withCredentials = true;
-      const res = await axios.post('https://bookmyslot-server.vercel.app/user/login', values);
+      
+      const res = await axios.post('https://bookmyslot-server.vercel.app/user/login', values,{
+        withCredentials: true, // To include cookies and credentials
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      });
       console.log(res);
       dispatch(hideLoading());
       if (res.data.success) {

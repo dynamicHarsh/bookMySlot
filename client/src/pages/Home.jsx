@@ -10,8 +10,13 @@ const HomePage = () => {
   const { user } = useSelector(state => state.user)
   const getUserData = async () => {
     try {
-      axios.defaults.withCredentials = true;
-      await axios.post('https://bookmyslot-server.vercel.app/user/getUserData');
+      
+      await axios.post('https://bookmyslot-server.vercel.app/user/getUserData',{
+        withCredentials: true, // To include cookies and credentials
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      });
     }
     catch (err) {
       console.log(err);

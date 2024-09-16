@@ -17,8 +17,13 @@ const UserPage = () => {
   );
   const getUsers=async ()=>{
     try{
-      axios.defaults.withCredentials = true;
-      const res=await axios.get('https://bookmyslot-server.vercel.app/user/getUsers');
+      
+      const res=await axios.get('https://bookmyslot-server.vercel.app/user/getUsers',{
+        withCredentials: true, 
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      });
       if(res.data.success){
         
         setUsers(res.data.users);

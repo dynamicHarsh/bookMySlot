@@ -22,8 +22,13 @@ const Booking = () => {
           dispatch(showLoading());
           
           const data={speciality: values.speciality,concern: values.concern,patientId: user.id,patientName: user.name,date: values.advDate};
-          axios.defaults.withCredentials = true;
-          const res=await axios.post('https://bookmyslot-server.vercel.app/user/book',data)
+          
+          const res=await axios.post('https://bookmyslot-server.vercel.app/user/book',data,{
+            withCredentials: true, // To include cookies and credentials
+            headers: {
+              'Content-Type': 'application/json',
+            },
+          })
           if(res.data.success){
             dispatch(hideLoading())
             message.success(res.data.message)

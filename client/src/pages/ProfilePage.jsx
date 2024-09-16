@@ -14,8 +14,13 @@ const ProfilePage = () => {
     
     try {
       console.log(values);
-      axios.defaults.withCredentials = true;
-      const res = await axios.post('https://bookmyslot-server.vercel.app/user/profile',{_id: user.id,values});
+      
+      const res = await axios.post('https://bookmyslot-server.vercel.app/user/profile',{_id: user.id,values},{
+        withCredentials: true, // To include cookies and credentials
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      });
       if (res.data.success) {
         
         message.success("Details Updated Successfully!");

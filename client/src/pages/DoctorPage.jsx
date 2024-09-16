@@ -17,8 +17,13 @@ const DoctorPage = () => {
 
   const getDoctors=async ()=>{
     try{
-      axios.defaults.withCredentials = true;
-      const res=await axios.get('https://bookmyslot-server.vercel.app/user/getDoctors');
+      
+      const res=await axios.get('https://bookmyslot-server.vercel.app/user/getDoctors',{
+        withCredentials: true, 
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      });
       if(res.data.success){
         
         setDoctors(res.data.doctors);
