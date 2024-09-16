@@ -5,11 +5,21 @@ const cookieParser=require('cookie-parser');
 const connectDB=require('./config/db');
 const userRouter = require('./routes/userRoutes');
 const path=require('path');
+const cors=require('cors');
 // const adminRouter=require('./routes/adminRoutes');
 dotenv.config();
 connectDB();
 
 const app=express();
+
+app.use(cors({
+  origin: ["https://toupdate"],
+  methods: ["POST","GET"],
+  credentials: true
+}))
+
+
+
 
 app.use(express.json());
 app.use(cookieParser());

@@ -12,7 +12,8 @@ export default function ProtectedRoute({children}){
   const getUser= async()=>{
     try{
       dispatch(showLoading());
-      const resp=await axios.post('user/getUserData')
+      axios.defaults.withCredentials = true;
+      const resp=await axios.post('https://bookmyslot-server.vercel.app/user/getUserData')
       dispatch(hideLoading());
       if(resp.data.success){
         dispatch(setUser(resp.data.data))

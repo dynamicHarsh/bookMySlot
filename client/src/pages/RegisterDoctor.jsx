@@ -19,7 +19,8 @@ const RegisterDoctor = () => {
     const handleFinish=async (values)=>{
         try{
             dispatch(showLoading());
-            const res=await axios.post('/user/addDoctor',values);
+            axios.defaults.withCredentials = true;
+            const res=await axios.post('https://bookmyslot-server.vercel.app/user/addDoctor',values);
             
             if(res.data.success){
                 

@@ -10,7 +10,8 @@ const HomePage = () => {
   const { user } = useSelector(state => state.user)
   const getUserData = async () => {
     try {
-      await axios.post('/user/getUserData');
+      axios.defaults.withCredentials = true;
+      await axios.post('https://bookmyslot-server.vercel.app/user/getUserData');
     }
     catch (err) {
       console.log(err);

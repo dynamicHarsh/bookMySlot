@@ -14,7 +14,8 @@ const LoginPage = () => {
     try {
       dispatch(showLoading());
       console.log(values);
-      const res = await axios.post('/user/login', values);
+      axios.defaults.withCredentials = true;
+      const res = await axios.post('https://bookmyslot-server.vercel.app/user/login', values);
       console.log(res);
       dispatch(hideLoading());
       if (res.data.success) {
