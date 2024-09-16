@@ -13,7 +13,7 @@ connectDB();
 const app = express();
 
 const corsOptions = {
-  origin: 'https://bookmyslot.vercel.app', // Allow requests from this origin
+  origin: 'https://bookmyslot.vercel.app/', // Allow requests from this origin
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'], // Methods allowed
   allowedHeaders: ['Content-Type', 'Authorization'], // Headers allowed
   credentials: true, // Allow credentials
