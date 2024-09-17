@@ -13,7 +13,7 @@ connectDB();
 const app=express();
 
 app.use(cors({
-  origin: 'https://bookmyslot.vercel.app', // Replace with the domain you want to allow
+  origin: 'https://bookmyslot.vercel.app/', // Replace with the domain you want to allow
   methods: ['GET', 'POST', 'PUT', 'DELETE'],
   credentials: true // If you need to support cookies and authentication
 }));
