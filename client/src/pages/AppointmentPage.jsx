@@ -26,13 +26,8 @@ const AppointmentPage = () => {
     
     const getAppointment= async ()=>{
         try{
-          
-         const res= await axios.post('https://bookmyslot-server.vercel.app/user/appointments',user,{
-          withCredentials: true, // To include cookies and credentials
-          headers: {
-            'Content-Type': 'application/json',
-          },
-        });
+        
+         const res= await axios.post('/user/appointments',user);
          if(res.data.success){
           const upadatedRes=res.data.app.map(({
             _id: key,

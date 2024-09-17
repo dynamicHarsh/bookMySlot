@@ -37,13 +37,7 @@ const RegisterPage = () => {
     const onFinishHandler = async (values) => {
         try {
             dispatch(showLoading());
-            
-            const res = await axios.post('https://bookmyslot-server.vercel.app/user/register', values, {
-                withCredentials: true, // To include cookies and credentials
-                headers: {
-                  'Content-Type': 'application/json',
-                },
-              });
+            const res = await axios.post('/user/register', values);
             dispatch(hideLoading());
             if (res.data.success) {
                 message.success('Registered Successfully');

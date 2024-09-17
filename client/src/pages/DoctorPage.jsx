@@ -17,13 +17,7 @@ const DoctorPage = () => {
 
   const getDoctors=async ()=>{
     try{
-      
-      const res=await axios.get('https://bookmyslot-server.vercel.app/user/getDoctors',{
-        withCredentials: true, 
-        headers: {
-          'Content-Type': 'application/json',
-        },
-      });
+      const res=await axios.get('/user/getDoctors');
       if(res.data.success){
         
         setDoctors(res.data.doctors);

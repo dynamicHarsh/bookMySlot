@@ -12,13 +12,7 @@ export default function ProtectedRoute({children}){
   const getUser= async()=>{
     try{
       dispatch(showLoading());
-      
-      const resp=await axios.post('https://bookmyslot-server.vercel.app/user/getUserData',{
-        withCredentials: true, // To include cookies and credentials
-        headers: {
-          'Content-Type': 'application/json',
-        },
-      })
+      const resp=await axios.post('user/getUserData')
       dispatch(hideLoading());
       if(resp.data.success){
         dispatch(setUser(resp.data.data))

@@ -1,42 +1,38 @@
-import React from 'react';
+import React from 'react'
 import { Form, Input, message } from 'antd';
 import axios from 'axios';
-import { useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux'
 import { showLoading, hideLoading } from '../redux/features/alertSlice';
-import '../styles/registerStyles.css';
-import { Link, useNavigate } from 'react-router-dom';
+import '../styles/registerStyles.css'; // Make sure your CSS file is imported here
+import { Link, useNavigate } from 'react-router-dom'
+
 
 const LoginPage = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
-
   const onFinishHandler = async (values) => {
     try {
       dispatch(showLoading());
       console.log(values);
-
-      const res = await axios.post('https://bookmyslot-server.vercel.app/user/login', values, {
-        withCredentials: true,
-        headers: {
-          'Content-Type': 'application/json',
-        },
-      });
+      const res = await axios.post('/user/login', values);
       console.log(res);
       dispatch(hideLoading());
       if (res.data.success) {
         sessionStorage.setItem('token', res.data.token);
         message.success('Logged In Successfully');
         navigate('/home');
-      } else {
+
+      }
+      else {
         message.error(res.data.message);
       }
-    } catch (error) {
+    }
+    catch (error) {
       dispatch(hideLoading());
       console.log(error);
       message.error('Something went wrong');
     }
-  };
-
+  }
   return (
     <>
       <div className="bg"></div>
@@ -56,7 +52,8 @@ const LoginPage = () => {
         </Form>
       </div>
     </>
-  );
-};
+
+  )
+}
 
 export default LoginPage;
