@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react'
 import Layout from '../components/Layout'
-import axios from 'axios';
+import axiosI from '../axios/axiosI';
 import {Table,Pagination} from 'antd';
 const DoctorPage = () => {
   const [doctors,setDoctors]=useState([]);
@@ -17,7 +17,7 @@ const DoctorPage = () => {
 
   const getDoctors=async ()=>{
     try{
-      const res=await axios.get('/user/getDoctors');
+      const res=await axiosI.get('/user/getDoctors');
       if(res.data.success){
         
         setDoctors(res.data.doctors);

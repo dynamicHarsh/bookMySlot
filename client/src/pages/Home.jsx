@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from 'react'
-import axios from 'axios';
+import axiosI from '../axios/axiosI';
 import Layout from '../components/Layout';
 import home from '../images/home.png'
 import "../styles/homeStyles.css"
@@ -10,7 +10,7 @@ const HomePage = () => {
   const { user } = useSelector(state => state.user)
   const getUserData = async () => {
     try {
-      await axios.post('/user/getUserData');
+      await axiosI.post('/user/getUserData');
     }
     catch (err) {
       console.log(err);

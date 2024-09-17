@@ -1,6 +1,6 @@
 import React, {useEffect,useRef,useState} from 'react'
 import Layout from '../components/Layout'
-import axios from 'axios';
+import axiosI from '../axios/axiosI'
 import {useSelector, useDispatch} from 'react-redux'
 import {message,Table,Pagination} from 'antd'
 
@@ -27,7 +27,7 @@ const AppointmentPage = () => {
     const getAppointment= async ()=>{
         try{
         
-         const res= await axios.post('/user/appointments',user);
+         const res= await axiosI.post('/user/appointments',user);
          if(res.data.success){
           const upadatedRes=res.data.app.map(({
             _id: key,

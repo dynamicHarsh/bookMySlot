@@ -1,7 +1,7 @@
 import React from 'react'
 import Layout from '../components/Layout'
 import {Col,Form,Input,Row,message,Select, DatePicker} from 'antd'
-import axios from 'axios'
+import axiosI from '../axios/axiosI'
 import { speciality } from '../Data/speciality'
 import {useSelector, useDispatch} from 'react-redux'
 import { showLoading,hideLoading } from '../redux/features/alertSlice';
@@ -22,7 +22,7 @@ const Booking = () => {
           dispatch(showLoading());
           
           const data={speciality: values.speciality,concern: values.concern,patientId: user.id,patientName: user.name,date: values.advDate};
-          const res=await axios.post('/user/book',data)
+          const res=await axiosI.post('/user/book',data)
           if(res.data.success){
             dispatch(hideLoading())
             message.success(res.data.message)

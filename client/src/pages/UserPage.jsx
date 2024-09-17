@@ -1,7 +1,7 @@
 import React,{useState,useEffect,useRef} from 'react'
 import Layout from '../components/Layout'
-import axios from 'axios';
 import {Table,Pagination} from 'antd';
+import axiosI from '../axios/axiosI';
 
 const UserPage = () => {
   const[users,setUsers]=useState([]);
@@ -17,7 +17,7 @@ const UserPage = () => {
   );
   const getUsers=async ()=>{
     try{
-      const res=await axios.get('/user/getUsers');
+      const res=await axiosI.get('/user/getUsers');
       if(res.data.success){
         
         setUsers(res.data.users);
