@@ -25,7 +25,7 @@ app.use(morgan('dev'));
 app.use('/user', userRouter);
 
 app.options('*', cors({
-  origin: 'https://bookmyslot.vercel.app',
+  origin: 'https://bookmyslot.vercel.app/login',
   methods: ['GET', 'POST', 'PUT', 'DELETE'],
   credentials: true
 }));
