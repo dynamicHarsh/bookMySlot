@@ -1,7 +1,7 @@
 import React, { useEffect ,useRef} from 'react'
 import {Navigate} from 'react-router-dom'; 
 import {useSelector, useDispatch} from 'react-redux'
-import axiosI from '../axios/axiosI';
+import axios from 'axios';
 import { hideLoading, showLoading } from '../redux/features/alertSlice';
 import { setUser } from '../redux/features/userSlice';
 import Cookies from 'js-cookie';
@@ -12,7 +12,7 @@ export default function ProtectedRoute({children}){
   const getUser= async()=>{
     try{
       dispatch(showLoading());
-      const resp=await axiosI.post('user/getUserData')
+      const resp=await axios.post('user/getUserData')
       dispatch(hideLoading());
       if(resp.data.success){
         dispatch(setUser(resp.data.data))

@@ -3,7 +3,7 @@ import Layout from '../components/Layout';
 import {Col, Form,Input,Row, TimePicker,message,Select } from 'antd';
 import { storage } from '../firebase';
 import {ref, uploadBytes} from 'firebase/storage'
-import axiosI from '../axios/axiosI';
+import axios from 'axios';
 import {Link,useNavigate} from 'react-router-dom'
 import {useDispatch} from 'react-redux'
 import { showLoading,hideLoading } from '../redux/features/alertSlice';
@@ -19,7 +19,7 @@ const RegisterDoctor = () => {
     const handleFinish=async (values)=>{
         try{
             dispatch(showLoading());
-            const res=await axiosI.post('/user/addDoctor',values);
+            const res=await axios.post('/user/addDoctor',values);
             
             if(res.data.success){
                 

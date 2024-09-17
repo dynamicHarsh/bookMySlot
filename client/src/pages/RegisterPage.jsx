@@ -2,7 +2,7 @@ import React from 'react'
 import { Form, Input, message, Select } from 'antd';
 import '../styles/registerStyles.css';
 import { Link, useNavigate } from 'react-router-dom'
-import axiosI from '../axios/axiosI';
+import axios from 'axios';
 import { useDispatch } from 'react-redux'
 import { showLoading, hideLoading } from '../redux/features/alertSlice';
 
@@ -37,7 +37,7 @@ const RegisterPage = () => {
     const onFinishHandler = async (values) => {
         try {
             dispatch(showLoading());
-            const res = await axiosI.post('/user/register', values);
+            const res = await axios.post('/user/register', values);
             dispatch(hideLoading());
             if (res.data.success) {
                 message.success('Registered Successfully');

@@ -2,7 +2,7 @@ import React from "react";
 import Layout from "../components/Layout";
 import { useSelector } from "react-redux";
 import { Card, Space, Input, Form, message } from "antd";
-import axiosI from "../axios/axiosI";
+import axios from 'axios';
 import userAvatar from '../images/user-avatar.avif';
 const { Meta } = Card;
 
@@ -14,7 +14,7 @@ const ProfilePage = () => {
     
     try {
       console.log(values);
-      const res = await axiosI.post('/user/profile',{_id: user.id,values});
+      const res = await axios.post('/user/profile',{_id: user.id,values});
       if (res.data.success) {
         
         message.success("Details Updated Successfully!");

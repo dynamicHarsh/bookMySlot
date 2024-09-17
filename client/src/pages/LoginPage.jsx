@@ -1,6 +1,6 @@
 import React from 'react'
 import { Form, Input, message } from 'antd';
-import axiosI from '../axios/axiosI';
+import axios from 'axios';
 import { useDispatch } from 'react-redux'
 import { showLoading, hideLoading } from '../redux/features/alertSlice';
 import '../styles/registerStyles.css'; // Make sure your CSS file is imported here
@@ -14,7 +14,7 @@ const LoginPage = () => {
     try {
       dispatch(showLoading());
       console.log(values);
-      const res = await axiosI.post('/user/login', values);
+      const res = await axios.post('/user/login', values);
       console.log(res);
       dispatch(hideLoading());
       if (res.data.success) {
