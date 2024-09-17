@@ -1,11 +1,7 @@
 import axios from 'axios';
 
 const axiosI = axios.create({
-  baseURL: '', 
-  headers: {
-    'Content-Type': 'application/json',
-    'Accept': 'application/json',
-  },
+  baseURL: 'https://bookmyslot-server.vercel.app', 
   withCredentials: true
 });
 
