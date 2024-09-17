@@ -11,10 +11,10 @@ dotenv.config();
 connectDB();
 
 const app = express();
-// app.use(cors())
-app.use(cors({
-  origin: 'https://bookmyslot.vercel.app'
-}));
+app.use(cors())
+// app.use(cors({
+//   origin: 'https://bookmyslot.vercel.app'
+// }));
 
 app.use(express.json());
 app.use(cookieParser());
