@@ -11,18 +11,16 @@ dotenv.config();
 connectDB();
 
 const app = express();
-app.use(cors())
-// app.use(cors({
-//   origin: 'https://bookmyslot.vercel.app'
-// }));
+app.use(cors({
+  origin: 'https://bookmyslot.vercel.app',
+  credentials: true
+}));
 
 app.use(express.json());
 app.use(cookieParser());
 app.use(morgan('dev'));
 
 app.use('/user', userRouter);
-
-
 
 app.use(express.static(path.join(__dirname, './client/build')));
 app.get('*', function (req, res) {
